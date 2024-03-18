@@ -53,7 +53,7 @@ export const Bookings = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://tossolback.onrender.com/api/bookings/getallbookings/",
+          "https://tossolback.onrender.com/api/bookings/getallbookings",
         );
         console.log(response.data);
         setBookings(response.data);
