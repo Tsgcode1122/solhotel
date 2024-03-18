@@ -20,7 +20,7 @@ const Homescreen = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://tossolback.onrender.com/api/rooms/getallrooms",
+          "https://toshotelback.onrender.com/api/rooms/getallrooms",
         );
         setRooms(response.data);
         setDuplicaterooms(response.data);

@@ -30,7 +30,7 @@ const Admin = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://tossolback.onrender.com/api/rooms/addrooms",
+        "https://toshotelback.onrender.com/api/rooms/addrooms",
         newroom,
       );
       console.log(response.data);

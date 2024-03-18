@@ -47,7 +47,7 @@ export const MyBookings = () => {
       try {
         setLoading(true);
         const response = await axios.post(
-          "https://tossolback.onrender.com/api/bookings/getbookingsbyuserid/",
+          "https://toshotelback.onrender.com/api/bookings/getbookingsbyuserid/",
           {
             userid: user._id,
           },
@@ -68,7 +68,7 @@ export const MyBookings = () => {
     try {
       setLoading(true);
       const result = await axios.post(
-        "https://tossolback.onrender.com/api/bookings/cancelbooking",
+        "https://toshotelback.onrender.com/api/bookings/cancelbooking",
         { bookingid, roomid },
       );
       console.log("result:", result.data);

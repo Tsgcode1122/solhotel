@@ -18,7 +18,7 @@ const Resetpassword = () => {
 
       // Check if email exists
       const response = await axios.post(
-        "https://tossolback.onrender.com/api/users/checkemail",
+        "https://toshotelback.onrender.com/api/users/checkemail",
         { email },
         setErrorMessage(""),
       );
@@ -48,7 +48,7 @@ const Resetpassword = () => {
       };
 
       const result = await axios.post(
-        "https://tossolback.onrender.com/api/users/reset",
+        "https://toshotelback.onrender.com/api/users/reset",
         user,
       );
       localStorage.setItem("currentUser", JSON.stringify(result.data));

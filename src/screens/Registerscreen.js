@@ -40,7 +40,7 @@ const Registerscreen = () => {
       const user = { name, email, password, confirmpassword };
       setLoading(true);
       const result = await axios.post(
-        "https://tossolback.onrender.com/api/users/register",
+        "https://toshotelback.onrender.com/api/users/register",
         user,
       );
       setLoading(false);

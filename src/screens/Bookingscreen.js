@@ -26,7 +26,7 @@ const Bookingscreen = ({ match }) => {
         setLoading(true);
         const data = (
           await axios.post(
-            "https://tossolback.onrender.com/api/rooms/getroombyid",
+            "https://toshotelback.onrender.com/api/rooms/getroombyid",
             {
               roomid: roomid,
             },
@@ -68,7 +68,7 @@ const Bookingscreen = ({ match }) => {
     try {
       setLoading(true);
       const result = await axios.post(
-        "https://tossolback.onrender.com/api/bookings/bookroom",
+        "https://toshotelback.onrender.com/api/bookings/bookroom",
         { ...bookingDetails, token },
         Swal.fire(
           "Congratulations",

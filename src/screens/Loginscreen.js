@@ -15,7 +15,7 @@ const Loginscreen = () => {
     try {
       const result = (
         await axios.post(
-          "https://tossolback.onrender.com/api/users/login",
+          "https://toshotelback.onrender.com/api/users/login",
           user,
         )
       ).data;
