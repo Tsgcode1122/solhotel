@@ -33,11 +33,10 @@ const Loginscreen = () => {
 
   return (
     <div>
-      <div className="row justify-content-center mt-5">
-        <div className="col-md-5 mt-5">
+      <div className="login">
+        <div className="login1">
           <div className="bs ">
             <h2 className="">Login</h2>
-
             <input
               type="email"
               className="form-control"
@@ -58,13 +57,18 @@ const Loginscreen = () => {
                 setPassword(e.target.value);
               }}
             />
+            <div className="bt">
+              <p className="booknow" onClick={login}>
+                Login
+              </p>
+            </div>
 
-            <button className="btn btn-primary mt-3" onClick={login}>
-              Login
-            </button>
-            <a href="/resetpassword" className="">
-              <p> forget password?</p>
-            </a>
+            <p>
+              {" "}
+              <a href="/resetpassword" className="">
+                forget password?
+              </a>
+            </p>
 
             <p>
               {" "}
@@ -73,13 +77,11 @@ const Loginscreen = () => {
                 Create an account
               </a>
             </p>
-
             {loginSuccess === true && (
               <div className="alert alert-success mt-3" role="alert">
                 Login successful!
               </div>
             )}
-
             {loginSuccess === false && (
               <div className="alert alert-danger mt-3" role="alert">
                 Invalid email or password.

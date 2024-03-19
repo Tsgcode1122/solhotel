@@ -49,7 +49,7 @@ const Admin = () => {
   };
 
   return (
-    <div className="row">
+    <div className="">
       {loading && <Loader />}
       <div className="col-md-5">
         <input

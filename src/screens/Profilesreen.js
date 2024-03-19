@@ -17,17 +17,25 @@ const Profilesreen = () => {
   }, []);
 
   return (
-    <div className="ml-3 mt-3">
+    <div className="profilescreen">
       <Tabs defaultActiveKey="1">
-        <TabPane tab="profile" key="1">
-          <h1>My Profile</h1>
-          <br />
-          <h1>Name :{user.name}</h1>
-          <h1>Email :{user.email}</h1>
-          <h1>isAdmin :{user.isAdmin ? "YES" : "NO"}</h1>
-        </TabPane>
-        <TabPane tab="Bookings" key="2">
+        <TabPane tab="Bookings" key="1">
           <MyBookings />
+        </TabPane>
+        <TabPane tab="profile" key="2" className="profff">
+          <h3>My Profile</h3>
+          <br />
+          <p>
+            <span>Name :</span> {user.name}
+          </p>
+          <p>
+            <span>Email :</span>
+            {user.email}
+          </p>
+          {/* <h4>
+            <span>Admin Status :</span>
+            {user.isAdmin ? "YES" : "NO"}
+          </h4> */}
         </TabPane>
       </Tabs>
     </div>
@@ -68,7 +76,7 @@ export const MyBookings = () => {
     try {
       setLoading(true);
       const result = await axios.post(
-        "https://toshotelback.onrender.com/api/bookings/cancelbooking",
+        "https://tossolback.onrender.com/api/bookings/cancelbooking",
         { bookingid, roomid },
       );
       console.log("result:", result.data);
@@ -87,8 +95,8 @@ export const MyBookings = () => {
 
   return (
     <div>
-      <div className="row">
-        <div className="col-md-6">
+      <div className="">
+        <div className="bookingsss">
           {loading && <Loader />}
           {bookings &&
             bookings.map((booking) => {

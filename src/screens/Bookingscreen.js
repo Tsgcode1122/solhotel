@@ -1,21 +1,25 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import axios from "axios";
+import Room from "../components/Room";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import moment from "moment";
+import { useParams } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
 import Swal from "sweetalert2";
-const Bookingscreen = ({ match }) => {
+
+const Bookingscreen = () => {
   const { roomid, fromdate, todate } = useParams();
   const [loading, setLoading] = useState(true);
   const [room, setRoom] = useState(null);
   const [error, setError] = useState(false);
+  const [isModal, setIsModal] = useState(true); // The issue is likely related to this state
 
   const firstdate = moment(fromdate, "DD-MM-YYY");
   const lastdate = moment(todate, "DD-MM-YYY");
   const totaldays = moment.duration(lastdate.diff(firstdate)).asDays() + 1;
   const [totalamount, setTotalamount] = useState(0);
+
   useEffect(() => {
     if (!localStorage.getItem("currentUser")) {
       window.location.href = "/login";
@@ -45,8 +49,7 @@ const Bookingscreen = ({ match }) => {
     };
 
     fetchData();
-  }, [roomid]);
-  console.log("Total amount:", totalamount);
+  }, [roomid, fromdate, todate, totaldays]); // Ensure all dependencies are listed here
 
   const onToken = async (token) => {
     console.log("Received token:", token);
@@ -87,41 +90,62 @@ const Bookingscreen = ({ match }) => {
     }
   };
 
+  const closemodal = () => {
+    setIsModal(!isModal);
+  };
+
   return (
-    <div className="row justify-center m-5">
+    <div className="custom-row justify-center">
       {loading ? (
         <Loader />
       ) : room ? (
-        <div className="">
-          <div className="row bs justify-content-center mr-5">
-            <div className="col-md-6">
-              <h1>{room.name}</h1>
-              <img src={room.imageurls[0]} className="bigimg" alt="" />
+        <div className="custom-container bs">
+          <div className="custom-column">
+            <div className="clname">
+              <h1>{room.name}</h1> <span onClick={closemodal}>close</span>
             </div>
-            <div className="col-md-6">
-              <h1 style={{ textAlign: "right" }}>Booking Details</h1>
-              <div style={{ textAlign: "right" }}>
-                <b>
-                  <hr />
-                  <p>
-                    Name: {JSON.parse(localStorage.getItem("currentUser")).name}{" "}
-                  </p>
-                  <p>From Date: {fromdate} </p>
-                  <p>To Date: {todate} </p>
-                  <p>Max Count: {room.maxcount} </p>
-                </b>
-              </div>
-              <div style={{ textAlign: "right" }}>
-                <b>
-                  <h1>Amount</h1>
-                  <hr />
-                  <p>Total days :{totaldays}</p>
-                  <p>Rent per day : {room.retnperday} </p>
-                  <p>Total Amount:{totalamount}</p>
-                </b>
-              </div>
+            <img src={room.imageurls[0]} className="bigimg" alt="" />
+          </div>
+          <div className="custom-columns">
+            <h3 style={{ textAlign: "left" }}>Booking Details</h3>
+            <div className="booking-info" style={{ textAlign: "left" }}>
+              <b>
+                <hr />
+                <p>
+                  <span>Name: </span>{" "}
+                  {JSON.parse(localStorage.getItem("currentUser")).name}{" "}
+                </p>
+                <p>
+                  {" "}
+                  <span>From Date: </span>
+                  {fromdate}{" "}
+                </p>
+                <p>
+                  <span>To Date: </span> {todate}{" "}
+                </p>
+                <p>
+                  <span>Max Count: </span> {room.maxcount}{" "}
+                </p>
+              </b>
             </div>
-            <div style={{ float: "right" }}>
+            <div className="amount-info" style={{ textAlign: "left" }}>
+              <b>
+                <h3>Amount</h3>
+                <hr />
+                <p>
+                  {" "}
+                  <span>Total days:</span> {totaldays}
+                </p>
+                <p>
+                  <span> Rent per day:</span> {room.retnperday}{" "}
+                </p>
+                <p>
+                  <span> Total Amount:</span>
+                  {totalamount}
+                </p>
+              </b>
+            </div>
+            <div className="payment-button" style={{ textAlign: "right" }}>
               <StripeCheckout
                 amount={totalamount * 100}
                 token={onToken}
@@ -129,7 +153,7 @@ const Bookingscreen = ({ match }) => {
                 stripeKey="pk_test_51OuEOcP5VD7BOW3SqV5IuUrwEjGl5KoH8uzQrxHEbGjDqUk8Pf6CuKCR0W5gYIeZI392vqhQI6KTJflhl0rTcxPr00BWkzDpIb"
                 name="Pay Now"
                 label="Pay Now"
-                className="btn btn-primary"
+                className="custom-button"
               />
             </div>
           </div>

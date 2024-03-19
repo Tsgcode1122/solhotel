@@ -4,7 +4,8 @@ import Room from "../components/Room";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import moment from "moment";
-
+import { DatePicker, Space } from "antd";
+const { RangePicker } = DatePicker;
 const Homescreen = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,11 @@ const Homescreen = () => {
   const filterByDate2 = (event) => {
     setTodate(moment(event.target.value).format("DD-MM-YYYY"));
   };
+  const handleDateChange = (dates) => {
+    setFromdate(moment(dates[0]).format("DD-MM-YYYY"));
 
+    setTodate(moment(dates[1]).format("DD-MM-YYYY"));
+  };
   const filterBySearch = () => {
     const filteredRooms = duplicaterooms.filter((room) =>
       room.name.toLowerCase().includes(searchkey.toLowerCase()),
@@ -85,48 +90,69 @@ const Homescreen = () => {
   const availableRooms = filterAvailableRooms();
 
   return (
-    <div className="container">
-      <div className="row bs">
-        <div className="da">
-          <input
-            type="date"
-            className="form-control"
-            placeholder="Select Date"
-            onChange={filterByDate1}
-          />
-          <input
-            type="date"
-            className="form-control"
-            placeholder="Select Date"
-            onChange={filterByDate2}
-          />
-        </div>
-        <div className="col-md-5">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="searchrooms"
-            value={searchkey}
-            onChange={(e) => {
-              setSearchkey(e.target.value);
-            }}
-          />
-        </div>
-        <div className="col-md-3">
-          <select
-            className="form-control"
-            value={type}
-            onChange={(e) => {
-              filterByType(e.target.value);
-            }}
-          >
-            <option value="all">All</option>
-            <option value="Delux">Delux</option>
-            <option value="Executive">Executive</option>
-          </select>
+    <div className="">
+      <div className="containers">
+        <div className="container2">
+          <p className="">
+            find your ideal room! Search by date for availability
+          </p>
+
+          <div className=" da  ">
+            <div className="ad">
+              <span>Check in Date </span>
+              <input
+                type="date"
+                className="form-control"
+                placeholder=" Checkin"
+                onFocus={(e) => (e.target.type = "date")}
+                onBlur={(e) => (e.target.type = "text")}
+                onChange={filterByDate1}
+              />
+            </div>
+
+            <div className="ad">
+              <span>Check out Date </span>
+
+              <input
+                type="date"
+                className="form-control"
+                placeholder="Checkout"
+                onFocus={(e) => (e.target.type = "date")}
+                onBlur={(e) => (e.target.type = "text")}
+                onChange={filterByDate2}
+              />
+            </div>
+          </div>
+
+          <div className="fi2 ">
+            <div className="col-md-5">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="searchroom by name"
+                value={searchkey}
+                onChange={(e) => {
+                  setSearchkey(e.target.value);
+                }}
+              />
+            </div>
+            <div className="col-md-3">
+              <select
+                className="form-control"
+                value={type}
+                onChange={(e) => {
+                  filterByType(e.target.value);
+                }}
+              >
+                <option value="all">All</option>
+                <option value="Delux">Delux</option>
+                <option value="Executive">Executive</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="row justify-center mt-5">
+      <div className="roomlist">
         {loading ? (
           <Loader />
         ) : (
