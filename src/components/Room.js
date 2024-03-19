@@ -21,11 +21,20 @@ const Room = ({ room, fromdate, todate }) => {
       </div>
       <div className="det ">
         <h3> {room.name} </h3>
-        <p> Max Count : {room.maxcount} </p>
-        <p> Phone Number : {room.phonenumber} </p>
-        <p> type : {room.type} </p>
+        <p>
+          {" "}
+          <span>Max Count : </span>
+          {room.maxcount}{" "}
+        </p>
+        <p>
+          {" "}
+          <span>Phone Number :</span> {room.phonenumber}{" "}
+        </p>
+        <p>
+          <span>type :</span> {room.type}{" "}
+        </p>
         <p className="rdet" onClick={handleShow}>
-          Room details &#x2192;
+          <span></span> Room details &#x2192;
         </p>
         <div className=" btnss">
           {fromdate && todate && (

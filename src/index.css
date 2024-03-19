@@ -180,6 +180,12 @@ h2 {
 .det {
   padding: 1rem 1rem 1rem 1rem;
 }
+.det p {
+  margin-bottom: 10px !important;
+}
+.det p span {
+  font-weight: bold;
+}
 .rdet {
   color: #1875dc;
   font-weight: 500;
@@ -237,7 +243,7 @@ Link .booknow:hover {
   justify-content: space-between;
   padding: 10px 10px 0 10px;
 }
-.clname span {
+.clname a {
   border-radius: 10px;
   padding: 5px;
   cursor: pointer;
@@ -262,6 +268,9 @@ Link .booknow:hover {
 }
 .login1 {
   width: 400px;
+}
+.login11 {
+  padding: 1rem;
 }
 .bb {
   display: flex;
@@ -308,4 +317,11 @@ Link .booknow:hover {
 .overh {
   overflow-x: auto;
   white-space: nowrap;
+}
+.bookingsss {
+  padding-bottom: 10px;
+}
+.booke {
+  padding: 10px;
+  margin-bottom: 20px;
 }

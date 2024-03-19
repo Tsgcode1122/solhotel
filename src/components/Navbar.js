@@ -3,10 +3,10 @@ import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("currentUser"));
-  const [showProfile, setShowProfile] = useState(false); // Changed variable name to showProfile
+  const [showProfile, setShowProfile] = useState(false);
 
   const toggleProfile = () => {
-    setShowProfile(!showProfile); // Renamed function to toggleProfile
+    setShowProfile(!showProfile);
   };
 
   const logout = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="navs">
       <div className="navdesign">
-        <a href="/home">Soltos Hotel</a>
+        <a href="/">Soltos Hotel</a>
 
         <div className="proflog">
           {user ? (

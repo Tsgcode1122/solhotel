@@ -17,8 +17,8 @@ function App() {
       <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path="/home" exact Component={Homescreen} />
-          {/* <Route path="/room" exact Component={Room} /> */}
+          <Route path="/" exact Component={Homescreen} />
+
           <Route
             path="/book/:roomid/:fromdate/:todate"
             exact
@@ -28,7 +28,7 @@ function App() {
           <Route path="/login" exact Component={Loginscreen} />
           <Route path="/profile" exact Component={Profilesreen} />
           <Route path="/admin" exact Component={Adminscreen} />
-          <Route path="/" exact Component={Landingscreen} />
+
           <Route path="/resetpassword" exact Component={Resetpassword} />
         </Routes>
       </BrowserRouter>

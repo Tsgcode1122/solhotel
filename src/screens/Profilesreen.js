@@ -101,8 +101,8 @@ export const MyBookings = () => {
           {bookings &&
             bookings.map((booking) => {
               return (
-                <div className="bs">
-                  <h1>{booking.room}</h1>
+                <div className="bs booke">
+                  <h3>{booking.room}</h3>
                   <p>
                     <b>BookId:</b> {booking._id}
                   </p>

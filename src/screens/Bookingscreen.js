@@ -13,7 +13,7 @@ const Bookingscreen = () => {
   const [loading, setLoading] = useState(true);
   const [room, setRoom] = useState(null);
   const [error, setError] = useState(false);
-  const [isModal, setIsModal] = useState(true); // The issue is likely related to this state
+  const [isModal, setIsModal] = useState(true);
 
   const firstdate = moment(fromdate, "DD-MM-YYY");
   const lastdate = moment(todate, "DD-MM-YYY");
@@ -49,7 +49,7 @@ const Bookingscreen = () => {
     };
 
     fetchData();
-  }, [roomid, fromdate, todate, totaldays]); // Ensure all dependencies are listed here
+  }, [roomid]);
 
   const onToken = async (token) => {
     console.log("Received token:", token);
@@ -89,20 +89,18 @@ const Bookingscreen = () => {
       console.error("Booking failed:", error.response.data.error);
     }
   };
-
   const closemodal = () => {
     setIsModal(!isModal);
   };
-
   return (
-    <div className="custom-row justify-center">
+    <div className="custom-row justify-center ">
       {loading ? (
         <Loader />
       ) : room ? (
         <div className="custom-container bs">
           <div className="custom-column">
             <div className="clname">
-              <h1>{room.name}</h1> <span onClick={closemodal}>close</span>
+              <h1>{room.name}</h1> <a href="/">close</a>
             </div>
             <img src={room.imageurls[0]} className="bigimg" alt="" />
           </div>

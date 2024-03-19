@@ -72,49 +72,51 @@ const Registerscreen = () => {
 
       <div className="login">
         <div className="bs login1">
-          <h2 className="">Register</h2>
-          {successMessage && (
-            <div className="alert alert-success">{successMessage}</div>
-          )}
-          {errorMessage && (
-            <div className="alert alert-danger">{errorMessage}</div>
-          )}
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Name"
-            required
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
-          />
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Confirm Password"
-            required
-            value={confirmpassword}
-            onChange={(e) => setConfirmpassword(e.target.value)}
-          />
-          <div className="bt">
-            <p className="booknow" onClick={register}>
-              Register
-            </p>
+          <div className="login11">
+            <h2 className="">Register</h2>
+            {successMessage && (
+              <div className="alert alert-success">{successMessage}</div>
+            )}
+            {errorMessage && (
+              <div className="alert alert-danger">{errorMessage}</div>
+            )}
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Name"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            />
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Confirm Password"
+              required
+              value={confirmpassword}
+              onChange={(e) => setConfirmpassword(e.target.value)}
+            />
+            <div className="bt">
+              <p className="booknow" onClick={register}>
+                Register
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const Loginscreen = () => {
     <div>
       <div className="login">
         <div className="login1">
-          <div className="bs ">
+          <div className="bs login11 ">
             <h2 className="">Login</h2>
             <input
               type="email"
