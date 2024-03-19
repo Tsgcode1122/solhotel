@@ -96,58 +96,59 @@ const Homescreen = () => {
           <p className="">
             find your ideal room! Search by date for availability
           </p>
+          <div className="bigsp">
+            <div className=" da  ">
+              <div className="ad">
+                <span>Check in Date </span>
+                <input
+                  type="date"
+                  className="form-control"
+                  placeholder=" Checkin"
+                  onFocus={(e) => (e.target.type = "date")}
+                  onBlur={(e) => (e.target.type = "text")}
+                  onChange={filterByDate1}
+                />
+              </div>
 
-          <div className=" da  ">
-            <div className="ad">
-              <span>Check in Date </span>
-              <input
-                type="date"
-                className="form-control"
-                placeholder=" Checkin"
-                onFocus={(e) => (e.target.type = "date")}
-                onBlur={(e) => (e.target.type = "text")}
-                onChange={filterByDate1}
-              />
+              <div className="ad">
+                <span>Check out Date </span>
+
+                <input
+                  type="date"
+                  className="form-control"
+                  placeholder="Checkout"
+                  onFocus={(e) => (e.target.type = "date")}
+                  onBlur={(e) => (e.target.type = "text")}
+                  onChange={filterByDate2}
+                />
+              </div>
             </div>
 
-            <div className="ad">
-              <span>Check out Date </span>
-
-              <input
-                type="date"
-                className="form-control"
-                placeholder="Checkout"
-                onFocus={(e) => (e.target.type = "date")}
-                onBlur={(e) => (e.target.type = "text")}
-                onChange={filterByDate2}
-              />
-            </div>
-          </div>
-
-          <div className="fi2 ">
-            <div className="col-md-5">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="searchroom by name"
-                value={searchkey}
-                onChange={(e) => {
-                  setSearchkey(e.target.value);
-                }}
-              />
-            </div>
-            <div className="col-md-3">
-              <select
-                className="form-control"
-                value={type}
-                onChange={(e) => {
-                  filterByType(e.target.value);
-                }}
-              >
-                <option value="all">All</option>
-                <option value="Delux">Delux</option>
-                <option value="Executive">Executive</option>
-              </select>
+            <div className="fi2 ">
+              <div className="">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="search by name"
+                  value={searchkey}
+                  onChange={(e) => {
+                    setSearchkey(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="">
+                <select
+                  className="form-control"
+                  value={type}
+                  onChange={(e) => {
+                    filterByType(e.target.value);
+                  }}
+                >
+                  <option value="all">All</option>
+                  <option value="Delux">Delux</option>
+                  <option value="Executive">Executive</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -162,7 +163,7 @@ const Homescreen = () => {
             )
             .filter((room) => type === "all" || room.type === type)
             .map((room) => (
-              <div key={room._id} className="col-md-9 mt-2">
+              <div key={room._id} className="mt-2">
                 <Room room={room} fromdate={fromdate} todate={todate} />
               </div>
             ))

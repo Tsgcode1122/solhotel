@@ -23,7 +23,7 @@ const Loginscreen = () => {
       setLoginSuccess(true);
       setEmail("");
       setPassword("");
-      window.location.href = "/home";
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
       // Login failed
