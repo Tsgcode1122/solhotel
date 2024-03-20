@@ -26,12 +26,9 @@ const Room = ({ room, fromdate, todate }) => {
           <span>Max Count : </span>
           {room.maxcount}{" "}
         </p>
+
         <p>
-          {" "}
-          <span>Phone Number :</span> {room.phonenumber}{" "}
-        </p>
-        <p>
-          <span>type :</span> {room.type}{" "}
+          <span>Type :</span> {room.type}{" "}
         </p>
         <p className="rdet" onClick={handleShow}>
           <span></span> Room details &#x2192;
@@ -64,6 +61,10 @@ const Room = ({ room, fromdate, todate }) => {
             </Carousel>
             <p style={{ fontSize: "18px", lineHeight: "1.5" }}>
               {room.description}
+            </p>
+            <p style={{ fontSize: "18px", lineHeight: "1.5" }}>
+              {" "}
+              <span>Call to Reserve:</span> {room.phonenumber}{" "}
             </p>
           </Modal.Body>
           <Modal.Footer>

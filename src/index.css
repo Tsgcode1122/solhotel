@@ -1,10 +1,22 @@
+@font-face {
+  font-family: "Mallory";
+  font-style: normal;
+  font-weight: bolder;
+  src:
+    local("Mallory"),
+    url("/Mallory-1.otf") format("otf");
+}
+
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Truculenta", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.norooms {
+  text-align: center;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -157,6 +169,8 @@ h2 {
   font-size: 20px;
   justify-content: center;
   text-align: center;
+  font-family: "Truculenta", sans-serif;
+  font-size: 30px;
 }
 
 .fi2 {
@@ -562,6 +576,9 @@ Link .booknow:hover {
   .container2 {
     padding: 10rem 8rem 10rem 8rem;
     width: 100% !important;
+  }
+  .containers p {
+    font-size: 40px;
   }
 }
 @media screen and (min-width: 1284px) {

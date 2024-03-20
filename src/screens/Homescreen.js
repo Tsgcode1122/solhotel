@@ -4,11 +4,13 @@ import Room from "../components/Room";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import moment from "moment";
+import Swal from "sweetalert2";
 import { DatePicker, Space } from "antd";
 const { RangePicker } = DatePicker;
 const Homescreen = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [avail, setAvail] = useState(false);
   const [error, setError] = useState(false);
   const [fromdate, setFromdate] = useState("");
   const [todate, setTodate] = useState("");
@@ -88,13 +90,15 @@ const Homescreen = () => {
   };
 
   const availableRooms = filterAvailableRooms();
-
+  if (availableRooms.length === 0) {
+    console.log("no room available");
+  }
   return (
     <div className="">
       <div className="containers">
         <div className="container2">
-          <p className="">
-            find your ideal room! Search by date for availability
+          <p className="headingt">
+            Find your ideal room! Search by date for availability.
           </p>
           <div className="bigsp">
             <div className=" da  ">
@@ -150,7 +154,7 @@ const Homescreen = () => {
       <div className="roomlist">
         {loading ? (
           <Loader />
-        ) : (
+        ) : availableRooms.length > 0 ? (
           availableRooms
             .filter((room) =>
               room.name.toLowerCase().includes(searchkey.toLowerCase()),
@@ -161,6 +165,13 @@ const Homescreen = () => {
                 <Room room={room} fromdate={fromdate} todate={todate} />
               </div>
             ))
+        ) : (
+          <div className="norooms">
+            <p className="noroom">
+              No available rooms in your picked dates, check other dates for
+              availability.
+            </p>
+          </div>
         )}
       </div>
     </div>
