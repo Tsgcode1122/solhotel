@@ -103,9 +103,6 @@ const Homescreen = () => {
                 <input
                   type="date"
                   className="form-control"
-                  placeholder=" Checkin"
-                  onFocus={(e) => (e.target.type = "date")}
-                  onBlur={(e) => (e.target.type = "text")}
                   onChange={filterByDate1}
                 />
               </div>
@@ -116,9 +113,6 @@ const Homescreen = () => {
                 <input
                   type="date"
                   className="form-control"
-                  placeholder="Checkout"
-                  onFocus={(e) => (e.target.type = "date")}
-                  onBlur={(e) => (e.target.type = "text")}
                   onChange={filterByDate2}
                 />
               </div>
@@ -162,8 +156,6 @@ const Homescreen = () => {
               room.name.toLowerCase().includes(searchkey.toLowerCase()),
             )
             .filter((room) => type === "all" || room.type === type)
-            .slice()
-            .reverse()
             .map((room) => (
               <div key={room._id} className="mt-2">
                 <Room room={room} fromdate={fromdate} todate={todate} />
