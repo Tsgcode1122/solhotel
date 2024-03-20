@@ -345,7 +345,9 @@ Link .booknow:hover {
   padding: 10px;
   margin-bottom: 20px;
 }
-
+.ad span {
+  font-size: 18px;
+}
 @media screen and (max-width: 320px) {
   .login {
     padding: 4rem 1rem 1rem 1rem;
@@ -364,7 +366,7 @@ Link .booknow:hover {
     justify-content: space-between;
   }
   .ad {
-    max-width: 130px !important;
+    max-width: 140px !important;
   }
   .fi2 {
     display: flex;
@@ -407,7 +409,7 @@ Link .booknow:hover {
     justify-content: space-between;
   }
   .ad {
-    max-width: 130px !important;
+    max-width: 150px !important;
   }
   .fi2 {
     display: flex;
@@ -450,7 +452,7 @@ Link .booknow:hover {
     justify-content: space-between;
   }
   .ad {
-    max-width: 150px !important;
+    max-width: 170px !important;
   }
   .fi2 {
     display: flex;

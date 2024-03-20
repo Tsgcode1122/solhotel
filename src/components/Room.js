@@ -21,13 +21,13 @@ const Room = ({ room, fromdate, todate }) => {
       </div>
       <div className="det ">
         <h3> {room.name} </h3>
-        <p>
+        <p style={{ fontSize: "18px", lineHeight: "1.5" }}>
           {" "}
           <span>Max Count : </span>
           {room.maxcount}{" "}
         </p>
 
-        <p>
+        <p style={{ fontSize: "18px", lineHeight: "1.5" }}>
           <span>Type :</span> {room.type}{" "}
         </p>
         <p className="rdet" onClick={handleShow}>

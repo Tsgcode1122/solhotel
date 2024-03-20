@@ -17,19 +17,27 @@ const Navbar = () => {
   return (
     <div className="navs">
       <div className="navdesign">
-        <a href="/">Soltos Hotel</a>
+        <a href="/" style={{ fontSize: "18px", lineHeight: "1.5" }}>
+          Soltos Hotel
+        </a>
 
         <div className="proflog">
           {user ? (
             <>
-              <div onClick={toggleProfile}>
+              <div
+                onClick={toggleProfile}
+                style={{ fontSize: "18px", lineHeight: "1.5" }}
+              >
                 <i className="fa-solid fa-user"></i> {user.name}{" "}
                 <i class="fa-solid fa-caret-down"></i>
               </div>
             </>
           ) : (
             <>
-              <div className="reglog">
+              <div
+                className="reglog"
+                style={{ fontSize: "18px", lineHeight: "1.5" }}
+              >
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
               </div>
@@ -38,7 +46,10 @@ const Navbar = () => {
         </div>
       </div>
       {showProfile && (
-        <div className="llloog ">
+        <div
+          className="llloog "
+          style={{ fontSize: "18px", lineHeight: "1.5" }}
+        >
           <div className="aa">
             <a href="/profile">Profile</a>
             <a href="#" onClick={logout}>
