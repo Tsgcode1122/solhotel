@@ -37,7 +37,7 @@ const Admin = () => {
       setLoading(false);
       Swal.fire("Congrats", "Your New Room Added Successfully", "success").then(
         (result) => {
-          window.location.href = "/home";
+          window.location.href = "/";
         },
       );
     } catch (error) {

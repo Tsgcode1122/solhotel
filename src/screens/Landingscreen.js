@@ -10,7 +10,7 @@ const Landingscreen = () => {
           There is only on eboss, the GUest.
         </h1>
 
-        <Link to="/home">
+        <Link to="/">
           <button className="btn btn-primary landingbtn">Get started</button>
         </Link>
       </div>

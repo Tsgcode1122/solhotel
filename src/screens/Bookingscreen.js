@@ -18,6 +18,7 @@ const Bookingscreen = () => {
   const firstdate = moment(fromdate, "DD-MM-YYY");
   const lastdate = moment(todate, "DD-MM-YYY");
   const totaldays = moment.duration(lastdate.diff(firstdate)).asDays() + 1;
+
   const [totalamount, setTotalamount] = useState(0);
 
   useEffect(() => {
@@ -100,7 +101,7 @@ const Bookingscreen = () => {
         <div className="custom-container bs">
           <div className="custom-column">
             <div className="clname">
-              <h1>{room.name}</h1> <a href="/">close</a>
+              <h3>{room.name}</h3>
             </div>
             <img src={room.imageurls[0]} className="bigimg" alt="" />
           </div>

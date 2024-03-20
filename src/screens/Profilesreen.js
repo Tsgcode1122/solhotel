@@ -99,47 +99,50 @@ export const MyBookings = () => {
         <div className="bookingsss">
           {loading && <Loader />}
           {bookings &&
-            bookings.map((booking) => {
-              return (
-                <div className="bs booke">
-                  <h3>{booking.room}</h3>
-                  <p>
-                    <b>BookId:</b> {booking._id}
-                  </p>
-                  <p>
-                    <b>Checkin:</b> {booking.fromdate}
-                  </p>
-                  <p>
-                    <b>Checkout: </b>
-                    {booking.todate}
-                  </p>
-                  <p>
-                    <b>Amount: </b>
-                    {booking.totalamount}
-                  </p>
-                  <p>
-                    <b> Status: </b>
-                    {booking.status == "cancelled" ? (
-                      <Tag color="red">Cancelled</Tag>
-                    ) : (
-                      <Tag color="green">Confirmed</Tag>
+            bookings
+              .slice()
+              .reverse()
+              .map((booking) => {
+                return (
+                  <div className="bs booke">
+                    <h3>{booking.room}</h3>
+                    <p>
+                      <b>BookId:</b> {booking._id}
+                    </p>
+                    <p>
+                      <b>Checkin:</b> {booking.fromdate}
+                    </p>
+                    <p>
+                      <b>Checkout: </b>
+                      {booking.todate}
+                    </p>
+                    <p>
+                      <b>Amount: </b>
+                      {booking.totalamount}
+                    </p>
+                    <p>
+                      <b> Status: </b>
+                      {booking.status === "cancelled" ? (
+                        <Tag color="red">Cancelled</Tag>
+                      ) : (
+                        <Tag color="green">Confirmed</Tag>
+                      )}
+                    </p>
+                    {booking.status !== "cancelled" && (
+                      <div className="text-right">
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => {
+                            cancelBooking(booking._id, booking.roomid);
+                          }}
+                        >
+                          Cancel Booking
+                        </button>
+                      </div>
                     )}
-                  </p>
-                  {booking.status !== "cancelled" && (
-                    <div className="text-right">
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => {
-                          cancelBooking(booking._id, booking.roomid);
-                        }}
-                      >
-                        Cancel Booking
-                      </button>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                  </div>
+                );
+              })}
         </div>
       </div>
     </div>

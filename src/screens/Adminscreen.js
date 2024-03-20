@@ -13,7 +13,7 @@ const { TabPane } = Tabs;
 const Adminscreen = () => {
   useEffect(() => {
     if (!JSON.parse(localStorage.getItem("currentUser")).isAdmin) {
-      window.location.href = "/home";
+      window.location.href = "/";
     }
   }, []);
 
@@ -86,19 +86,22 @@ export const Bookings = () => {
             </thead>
             <tbody>
               {bookings.length &&
-                bookings.map((booking) => {
-                  return (
-                    <tr>
-                      <td>{booking._id}</td>
-                      <td>{booking.userid}</td>
-                      <td>{booking.room}</td>
-                      <td>{booking.fromdate}</td>
-                      <td>{booking.todate}</td>
-                      <td>{booking.status}</td>
-                      {/* <td>{booking.user.name}</td> */}
-                    </tr>
-                  );
-                })}
+                bookings
+                  .slice()
+                  .reverse()
+                  .map((booking) => {
+                    return (
+                      <tr>
+                        <td>{booking._id}</td>
+                        <td>{booking.userid}</td>
+                        <td>{booking.room}</td>
+                        <td>{booking.fromdate}</td>
+                        <td>{booking.todate}</td>
+                        <td>{booking.status}</td>
+                        {/* <td>{booking.user.name}</td> */}
+                      </tr>
+                    );
+                  })}
             </tbody>
           </table>
         </div>
@@ -150,19 +153,22 @@ export const Rooms = () => {
             </thead>
             <tbody>
               {rooms.length &&
-                rooms.map((room) => {
-                  return (
-                    <tr>
-                      <td>{room._id}</td>
-                      <td>{room.name}</td>
-                      <td>{room.type}</td>
-                      <td>{room.retnperday}</td>
-                      <td>{room.maxcount}</td>
-                      <td>{room.phonenumber}</td>
-                      {/* <td>{booking.user.name}</td> */}
-                    </tr>
-                  );
-                })}
+                rooms
+                  .slice()
+                  .reverse()
+                  .map((room) => {
+                    return (
+                      <tr>
+                        <td>{room._id}</td>
+                        <td>{room.name}</td>
+                        <td>{room.type}</td>
+                        <td>{room.retnperday}</td>
+                        <td>{room.maxcount}</td>
+                        <td>{room.phonenumber}</td>
+                        {/* <td>{booking.user.name}</td> */}
+                      </tr>
+                    );
+                  })}
             </tbody>
           </table>
         </div>

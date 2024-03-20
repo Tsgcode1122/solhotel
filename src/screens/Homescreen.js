@@ -162,6 +162,8 @@ const Homescreen = () => {
               room.name.toLowerCase().includes(searchkey.toLowerCase()),
             )
             .filter((room) => type === "all" || room.type === type)
+            .slice()
+            .reverse()
             .map((room) => (
               <div key={room._id} className="mt-2">
                 <Room room={room} fromdate={fromdate} todate={todate} />

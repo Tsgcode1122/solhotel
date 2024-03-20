@@ -333,6 +333,9 @@ Link .booknow:hover {
 }
 
 @media screen and (max-width: 320px) {
+  .login {
+    padding: 4rem 1rem 1rem 1rem;
+  }
   .navdesign {
     padding: 10px 10px 10px 10px;
   }
@@ -347,7 +350,7 @@ Link .booknow:hover {
     justify-content: space-between;
   }
   .ad {
-    min-width: 30px !important;
+    max-width: 130px !important;
   }
   .fi2 {
     display: flex;
@@ -373,6 +376,9 @@ Link .booknow:hover {
   }
 }
 @media (min-width: 321px) and (max-width: 399px) {
+  .login {
+    padding: 4rem 1rem 1rem 1rem;
+  }
   .navdesign {
     padding: 10px 10px 10px 10px;
   }
@@ -387,7 +393,7 @@ Link .booknow:hover {
     justify-content: space-between;
   }
   .ad {
-    min-width: 30px !important;
+    max-width: 130px !important;
   }
   .fi2 {
     display: flex;
@@ -396,7 +402,7 @@ Link .booknow:hover {
     align-items: end !important;
     border: 1px solid white;
     gap: 1rem;
-    /* padding: 0.5rem 2rem 0.5rem 2rem; */
+
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
@@ -413,6 +419,9 @@ Link .booknow:hover {
   }
 }
 @media (min-width: 400px) and (max-width: 499px) {
+  .login {
+    padding: 4rem 2rem 1rem 2rem;
+  }
   .navdesign {
     padding: 10px 10px 10px 10px;
   }
@@ -427,7 +436,7 @@ Link .booknow:hover {
     justify-content: space-between;
   }
   .ad {
-    min-width: 30px !important;
+    max-width: 150px !important;
   }
   .fi2 {
     display: flex;
@@ -453,6 +462,19 @@ Link .booknow:hover {
   }
 }
 @media screen and (min-width: 771px) {
+  .custom-container {
+    display: grid;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    grid-template-columns: 50% 50% !important;
+    /* align-items: center; */
+  }
+  .custom-row {
+    height: 90vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
   .navdesign {
     padding: 10px 30px 10px 30px;
   }
@@ -486,6 +508,17 @@ Link .booknow:hover {
     grid-template-columns: 50% 50%;
     padding: 0 1rem 3rem 1rem;
   }
+
+  .bookingsss {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 0;
+    gap: 1rem;
+  }
+  .profilescreen {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   .details {
     margin-bottom: 0 !important;
   }
@@ -512,6 +545,16 @@ Link .booknow:hover {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0 1rem 3rem 1rem;
+  }
+  .bookingsss {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0;
+    gap: 1rem;
+  }
+  .profilescreen {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
   .details {
     margin-bottom: 0 !important;
